@@ -13,7 +13,15 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import Navbar from './Components/Navbar.vue';
 import Footer from './Components/Footer.vue';
+import { onMounted } from 'vue';
+import { useThemeStore } from './stores/theme';
+
 
 const route = useRoute();
 const isAdminRoute = computed(() => route.path.startsWith('/admin'));
+const themeStore = useThemeStore();
+
+onMounted(() => {
+  themeStore.init();
+});
 </script>

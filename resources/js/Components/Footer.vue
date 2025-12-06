@@ -33,8 +33,18 @@
               </router-link>
             </li>
             <li>
+              <router-link to="/contact" class="text-gray-400 hover:text-white transition">
+                Contact
+              </router-link>
+            </li>
+            <li>
               <router-link to="/login" class="text-gray-400 hover:text-white transition">
                 Admin
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/api-docs" class="text-gray-400 hover:text-white transition">
+                API Docs
               </router-link>
             </li>
           </ul>

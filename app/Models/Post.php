@@ -74,4 +74,14 @@ class Post extends Model
         
         return Str::limit(strip_tags($this->content), 200);
     }
+
+    public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
+
+public function approvedComments()
+{
+    return $this->hasMany(Comment::class)->where('status', 'approved');
+}
 }

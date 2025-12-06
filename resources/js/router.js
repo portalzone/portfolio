@@ -91,7 +91,19 @@ const routes = [
     name: 'admin-analytics',
     component: AdminAnalytics,
     meta: { requiresAuth: true, title: 'Analytics' }
-  }
+  },
+  {
+  path: '/contact',
+  name: 'contact',
+  component: () => import('./Pages/Contact.vue'),
+  meta: { title: 'Contact' }
+},
+{
+  path: '/api-docs',
+  name: 'api-docs',
+  component: () => import('./Pages/ApiDocs.vue'),
+  meta: { title: 'API Documentation' }
+}
 ];
 
 const router = createRouter({
