@@ -57,10 +57,10 @@ Route::prefix('portfolio')->group(function () {
     Route::get('/posts/{slug}', [PortfolioController::class, 'getPost']);
     Route::get('/categories', [PortfolioController::class, 'getCategories']);
     Route::post('/track-view', [PortfolioController::class, 'trackView']);
-    Route::post('/contact', [ContactController::class, 'submit']);
 
 });
-
+// Public: Contact Form
+Route::post('/contact', [ContactController::class, 'submit']);
 // Newsletter
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe']);
 Route::get('/newsletter/verify/{token}', [NewsletterController::class, 'verify']);
