@@ -1,127 +1,147 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-lg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex items-center">
-            <h1 class="text-2xl font-bold text-primary">Admin Panel</h1>
+  <AdminLayout>
+    <h2 class="text-3xl font-bold mb-8 dark:text-white">Profile Settings</h2>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-8 max-w-4xl transition-colors">
+      <form @submit.prevent="saveProfile" class="space-y-6">
+        <!-- Personal Info -->
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium mb-2 dark:text-gray-300">Full Name *</label>
+            <input 
+              v-model="profile.name" 
+              type="text" 
+              required 
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary"
+            />
           </div>
-          <div class="flex items-center gap-4">
-            <span class="text-gray-700">Admin</span>
-            <button @click="handleLogout" class="text-red-600 hover:text-red-800">Logout</button>
+          <div>
+            <label class="block text-sm font-medium mb-2 dark:text-gray-300">Title/Role</label>
+            <input 
+              v-model="profile.title" 
+              type="text" 
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+              placeholder="Full Stack Developer"
+            />
           </div>
         </div>
-      </div>
-    </nav>
 
-    <div class="flex">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white shadow-lg min-h-screen">
-        <nav class="p-4">
-          <router-link to="/admin" class="block px-4 py-3 rounded-lg mb-2 hover:bg-gray-100">📊 Dashboard</router-link>
-          <router-link to="/admin/projects" class="block px-4 py-3 rounded-lg mb-2 hover:bg-gray-100">📁 Projects</router-link>
-          <router-link to="/admin/skills" class="block px-4 py-3 rounded-lg mb-2 hover:bg-gray-100">🛠️ Skills</router-link>
-          <router-link to="/admin/blog" class="block px-4 py-3 rounded-lg mb-2 hover:bg-gray-100">✍️ Blog</router-link>
-          <router-link to="/admin/profile" class="block px-4 py-3 rounded-lg mb-2 bg-primary text-white">👤 Profile</router-link>
-          <router-link to="/admin/analytics" class="block px-4 py-3 rounded-lg mb-2 hover:bg-gray-100">📈 Analytics</router-link>
-        </nav>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="flex-1 p-8">
-        <h2 class="text-3xl font-bold mb-8">Profile Settings</h2>
-
-        <div class="bg-white rounded-lg shadow p-8 max-w-4xl">
-          <form @submit.prevent="saveProfile" class="space-y-6">
-            <!-- Personal Info -->
-            <div class="grid grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium mb-2">Full Name</label>
-                <input v-model="profile.name" type="text" required class="w-full px-4 py-2 border rounded-lg">
-              </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">Title/Role</label>
-                <input v-model="profile.title" type="text" class="w-full px-4 py-2 border rounded-lg" placeholder="Full Stack Developer">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-2">Bio</label>
-              <textarea v-model="profile.bio" class="w-full px-4 py-2 border rounded-lg" rows="4"></textarea>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="grid grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium mb-2">Email</label>
-                <input v-model="profile.email" type="email" required class="w-full px-4 py-2 border rounded-lg">
-              </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">Phone</label>
-                <input v-model="profile.phone" type="tel" class="w-full px-4 py-2 border rounded-lg">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-2">Location</label>
-              <input v-model="profile.location" type="text" class="w-full px-4 py-2 border rounded-lg" placeholder="City, Country">
-            </div>
-
-            <!-- Social Links -->
-            <div class="border-t pt-6">
-              <h3 class="text-xl font-semibold mb-4">Social Links</h3>
-              
-              <div class="space-y-4">
-                <div>
-                  <label class="block text-sm font-medium mb-2">GitHub URL</label>
-                  <input v-model="profile.github_url" type="url" class="w-full px-4 py-2 border rounded-lg" placeholder="https://github.com/username">
-                </div>
-                <div>
-                  <label class="block text-sm font-medium mb-2">LinkedIn URL</label>
-                  <input v-model="profile.linkedin_url" type="url" class="w-full px-4 py-2 border rounded-lg" placeholder="https://linkedin.com/in/username">
-                </div>
-                <div>
-                  <label class="block text-sm font-medium mb-2">Twitter URL</label>
-                  <input v-model="profile.twitter_url" type="url" class="w-full px-4 py-2 border rounded-lg" placeholder="https://twitter.com/username">
-                </div>
-              </div>
-            </div>
-
-            <!-- Resume -->
-            <div class="border-t pt-6">
-              <label class="block text-sm font-medium mb-2">Resume URL</label>
-              <input v-model="profile.resume_url" type="url" class="w-full px-4 py-2 border rounded-lg" placeholder="https://example.com/resume.pdf">
-            </div>
-
-            <!-- Submit -->
-            <div class="flex gap-4 pt-6">
-              <button type="submit" :disabled="saving" class="btn-primary flex-1">
-                {{ saving ? 'Saving...' : 'Save Changes' }}
-              </button>
-              <router-link to="/admin" class="bg-gray-200 px-4 py-2 rounded-lg flex-1 text-center">
-                Cancel
-              </router-link>
-            </div>
-
-            <div v-if="successMessage" class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-              {{ successMessage }}
-            </div>
-          </form>
+        <div>
+          <label class="block text-sm font-medium mb-2 dark:text-gray-300">Bio</label>
+          <textarea 
+            v-model="profile.bio" 
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+            rows="4"
+            placeholder="Tell visitors about yourself..."
+          ></textarea>
         </div>
-      </main>
+
+        <!-- Contact Info -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white">Contact Information</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2 dark:text-gray-300">Email *</label>
+              <input 
+                v-model="profile.email" 
+                type="email" 
+                required 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 dark:text-gray-300">Phone</label>
+              <input 
+                v-model="profile.phone" 
+                type="tel" 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary"
+                placeholder="+1 (555) 123-4567"
+              />
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-sm font-medium mb-2 dark:text-gray-300">Location</label>
+            <input 
+              v-model="profile.location" 
+              type="text" 
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+              placeholder="City, Country"
+            />
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white">Social Links</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium mb-2 dark:text-gray-300">GitHub URL</label>
+              <input 
+                v-model="profile.github_url" 
+                type="url" 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+                placeholder="https://github.com/username"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 dark:text-gray-300">LinkedIn URL</label>
+              <input 
+                v-model="profile.linkedin_url" 
+                type="url" 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+                placeholder="https://linkedin.com/in/username"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 dark:text-gray-300">Twitter URL</label>
+              <input 
+                v-model="profile.twitter_url" 
+                type="url" 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+                placeholder="https://twitter.com/username"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white">Resume</h3>
+          <label class="block text-sm font-medium mb-2 dark:text-gray-300">Resume URL</label>
+          <input 
+            v-model="profile.resume_url" 
+            type="url" 
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary" 
+            placeholder="https://example.com/resume.pdf"
+          />
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Upload your resume to a cloud service and paste the link here</p>
+        </div>
+
+        <!-- Submit -->
+        <div class="flex gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <button type="submit" :disabled="saving" class="btn-primary flex-1">
+            {{ saving ? 'Saving...' : 'Save Changes' }}
+          </button>
+          <router-link to="/admin" class="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg flex-1 text-center hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+            Cancel
+          </router-link>
+        </div>
+
+        <div v-if="successMessage" class="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-200 px-4 py-3 rounded-lg">
+          {{ successMessage }}
+        </div>
+      </form>
     </div>
-  </div>
+  </AdminLayout>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '../../stores/auth';
 import { useApi } from '../../composables/useApi';
+import AdminLayout from '../../Layouts/AdminLayout.vue';
 
-const router = useRouter();
-const authStore = useAuthStore();
 const api = useApi();
 
 const profile = ref({
@@ -158,11 +178,6 @@ const saveProfile = async () => {
   } finally {
     saving.value = false;
   }
-};
-
-const handleLogout = async () => {
-  await authStore.logout();
-  router.push('/login');
 };
 
 onMounted(() => {

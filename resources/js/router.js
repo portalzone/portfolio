@@ -103,7 +103,26 @@ const routes = [
   name: 'api-docs',
   component: () => import('./Pages/ApiDocs.vue'),
   meta: { title: 'API Documentation' }
-}
+},
+// Admin routes
+{
+  path: '/admin/contact-messages',
+  name: 'admin-contact-messages',
+  component: () => import('./Pages/Admin/ContactMessages.vue'),
+  meta: { requiresAuth: true, title: 'Contact Messages' }
+},
+{
+  path: '/admin/comments',
+  name: 'admin-comments',
+  component: () => import('./Pages/Admin/Comments.vue'),
+  meta: { requiresAuth: true, title: 'Comments' }
+},
+{
+  path: '/admin/newsletter',
+  name: 'admin-newsletter',
+  component: () => import('./Pages/Admin/Newsletter.vue'),
+  meta: { requiresAuth: true, title: 'Newsletter' }
+},
 ];
 
 const router = createRouter({
