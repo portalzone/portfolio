@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PortfolioController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\NewsletterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
