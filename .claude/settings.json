@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"http://portfolio-cms.test/api/portfolio/projects?featured=1\")",
+      "Bash(curl -s \"http://portfolio-cms.test/api/portfolio/projects?featured=true\")",
+      "Bash(curl -s \"http://portfolio-cms.test/api/portfolio/skills\")",
+      "Bash(git -C /Users/portalzone/Herd/portfolio-cms remote -v)"
+    ]
+  }
+}

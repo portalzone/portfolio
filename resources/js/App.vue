@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="min-h-screen bg-gray-50">
+  <div id="app" class="min-h-screen bg-white dark:bg-[#0D1117] transition-colors duration-300">
     <Navbar v-if="!isAdminRoute" />
     <main>
       <router-view />
@@ -9,17 +9,15 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useThemeStore } from './stores/theme';
 import Navbar from './Components/Navbar.vue';
 import Footer from './Components/Footer.vue';
-import { onMounted } from 'vue';
-import { useThemeStore } from './stores/theme';
-
 
 const route = useRoute();
-const isAdminRoute = computed(() => route.path.startsWith('/admin'));
 const themeStore = useThemeStore();
+const isAdminRoute = computed(() => route.path.startsWith('/admin'));
 
 onMounted(() => {
   themeStore.init();
