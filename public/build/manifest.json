@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CrlFY1yS.css",
+    "file": "assets/app-C5Ze3nas.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -9,7 +9,7 @@
     ]
   },
   "resources/js/Pages/Admin/Comments.vue": {
-    "file": "assets/Comments-B4LekmfK.js",
+    "file": "assets/Comments-1CKZlDVD.js",
     "name": "Comments",
     "src": "resources/js/Pages/Admin/Comments.vue",
     "isDynamicEntry": true,
@@ -18,7 +18,7 @@
     ]
   },
   "resources/js/Pages/Admin/ContactMessages.vue": {
-    "file": "assets/ContactMessages-CENDa-au.js",
+    "file": "assets/ContactMessages-BiON0wwC.js",
     "name": "ContactMessages",
     "src": "resources/js/Pages/Admin/ContactMessages.vue",
     "isDynamicEntry": true,
@@ -27,7 +27,7 @@
     ]
   },
   "resources/js/Pages/Admin/Newsletter.vue": {
-    "file": "assets/Newsletter-DE21Own1.js",
+    "file": "assets/Newsletter-Cr4nyRxk.js",
     "name": "Newsletter",
     "src": "resources/js/Pages/Admin/Newsletter.vue",
     "isDynamicEntry": true,
@@ -36,7 +36,7 @@
     ]
   },
   "resources/js/Pages/ApiDocs.vue": {
-    "file": "assets/ApiDocs-DHhd1pJY.js",
+    "file": "assets/ApiDocs-rY380tSq.js",
     "name": "ApiDocs",
     "src": "resources/js/Pages/ApiDocs.vue",
     "isDynamicEntry": true,
@@ -45,7 +45,7 @@
     ]
   },
   "resources/js/Pages/Contact.vue": {
-    "file": "assets/Contact-hCU5fzAO.js",
+    "file": "assets/Contact-DiDOHnVz.js",
     "name": "Contact",
     "src": "resources/js/Pages/Contact.vue",
     "isDynamicEntry": true,
@@ -54,7 +54,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CHPwn2SE.js",
+    "file": "assets/app-eZ-KOuzV.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -66,7 +66,7 @@
       "resources/js/Pages/Admin/Newsletter.vue"
     ],
     "css": [
-      "assets/app-EItCLX60.css"
+      "assets/app-BaviBXy8.css"
     ]
   }
 }
